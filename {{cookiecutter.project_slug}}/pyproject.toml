@@ -323,7 +323,7 @@ dev = [
     # Linting and formatting
     "ruff==0.13.1",
     "black==23.3.0",
-    "isort==6.0.1",
+    "isort==6.1.0",
 
     # Type checking
     "mypy==1.5.0",
