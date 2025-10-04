@@ -1,7 +1,7 @@
 [project]
 name = "clean-architecture-fastapi-project"
-version = "{{ cookiecutter.version }}"
-description = "{{ cookiecutter.project_description }}"
+version = "0.0.1"
+description = "simple description"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
