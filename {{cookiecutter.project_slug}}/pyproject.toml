@@ -322,7 +322,7 @@ app = "{{ cookiecutter.project_slug | default('my_fastapi_project') }}.main:app"
 dev = [
     # Linting and formatting
     "ruff==0.13.1",
-    "black==23.3.0",
+    "black==25.9.0",
     "isort==6.0.1",
 
     # Type checking
