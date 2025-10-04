@@ -27,7 +27,7 @@ kafka = ["faststream[kafka]==0.5.48"]
 rabbitmq = ["faststream[rabbit]==0.5.48"]
 nats = ["faststream[nats]==0.5.48"]
 postgresql = ["asyncpg==0.30.0"]
-sqlite = ["aiosqlite==0.20.0"]
+sqlite = ["aiosqlite==0.21.0"]
 mysql = ["aiomysql==0.2.0"]
 
 [build-system]
