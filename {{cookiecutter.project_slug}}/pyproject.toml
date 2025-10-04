@@ -3,7 +3,7 @@ name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
 readme = "README.md"
-requires-python = ">={{ cookiecutter.python_version }}"
+requires-python = ">= {{ cookiecutter.requires_python | default('3.12') }}"
 dependencies = [
     "alembic==1.16.5",
     "dishka==1.7.2",
@@ -35,11 +35,11 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/{{cookiecutter.project_slug}}"]
+packages = ["src/{{ cookiecutter.project_slug | default('my_fastapi_project') }}"]
 
 [tool.ruff]
 # Ruff configuration
-target-version = "py{{ cookiecutter.python_version | replace('.', '') }}"
+target-version = "py{{ cookiecutter.python_version | default('3.12') | replace('.', '') }}"
 line-length = 88
 indent-width = 4
 
@@ -175,7 +175,7 @@ unfixable = []
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.isort]
-known-first-party = ["{{cookiecutter.project_slug}}"]
+known-first-party = ["{{ cookiecutter.project_slug | default('my_fastapi_project') }}"]
 force-sort-within-sections = true
 split-on-trailing-comma = true
 
@@ -238,7 +238,7 @@ ban-relative-imports = "all"
 
 [tool.mypy]
 # Mypy configuration
-python_version = "{{ cookiecutter.python_version }}"
+python_version = "{{ cookiecutter.python_version | default('3.12') }}"
 strict = false
 warn_return_any = true
 warn_unused_configs = true
@@ -316,7 +316,7 @@ filterwarnings = [
 ]
 
 [project.scripts]
-{{cookiecutter.project_slug}} = "{{cookiecutter.project_slug}}.main:app"
+app = "{{ cookiecutter.project_slug | default('my_fastapi_project') }}.main:app"
 
 [dependency-groups]
 dev = [
