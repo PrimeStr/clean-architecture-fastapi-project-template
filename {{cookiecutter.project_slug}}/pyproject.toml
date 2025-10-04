@@ -1,5 +1,5 @@
 [project]
-name = "Clean architecture FastApi project"
+name = "clean-architecture-fastapi-project"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
 readme = "README.md"
