@@ -42,6 +42,27 @@ COPY pyproject.toml uv.lock README.md ./
 # Install dependencies using uv
 RUN uv sync --frozen --no-dev
 
+# Install optional extras chosen via Cookiecutter
+{% if cookiecutter.use_cache in ["redis", "keydb", "dragonfly"] %}
+RUN uv pip install ".[redis]"
+{% elif cookiecutter.use_cache == "tarantool" %}
+RUN uv pip install ".[tarantool]"
+{% endif %}
+{% if cookiecutter.use_broker == "kafka" %}
+RUN uv pip install ".[kafka]"
+{% elif cookiecutter.use_broker == "rabbitmq" %}
+RUN uv pip install ".[rabbitmq]"
+{% elif cookiecutter.use_broker == "nats" %}
+RUN uv pip install ".[nats]"
+{% endif %}
+{% if cookiecutter.use_database == "postgresql" %}
+RUN uv pip install ".[postgresql]"
+{% elif cookiecutter.use_database == "sqlite" %}
+RUN uv pip install ".[sqlite]"
+{% elif cookiecutter.use_database == "mysql" %}
+RUN uv pip install ".[mysql]"
+{% endif %}
+
 # Clean up cache to avoid permission issues
 RUN rm -rf /opt/uv-cache/*
 
