@@ -321,7 +321,7 @@ app = "{{ cookiecutter.project_slug | default('my_fastapi_project') }}.main:app"
 [dependency-groups]
 dev = [
     # Linting and formatting
-    "ruff==0.13.1",
+    "ruff==0.14.0",
     "black==23.3.0",
     "isort==6.0.1",
 
